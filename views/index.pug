@@ -1,0 +1,60 @@
+extends layout
+include mixins/namePicker
+include mixins/roomPicker
+include mixins/announcement
+
+block content
+  .col-sm-4.col-9#side-list
+      .knob#toggle.text-center <
+      .col-sm-12#room-list
+        h5.text-center(style='padding-bottom: 1rem;') Rooms
+        each obj, room in roomList
+          .row.room-list-item(class=`${title == room ? "active-list" : "" }` id=`${room}-list-item` OnClick=`joinRoom('', '${room}')`)
+            .col-3
+              img(id="side-room-img" src=`https://identicon-api.herokuapp.com/${encodeURI(room.replace(/\?/g, ""))}/32?format=png` alt="")
+            .col-6
+              span.text-button #{room}
+            .col-3
+              span(id=`${room}-list-count`) #{obj.length}
+        button(type="button" class="btn btn-primary" data-toggle="modal" data-target=`#Create-room`) Create Room
+
+        script.
+          var $slider = document.getElementById('side-list');
+          var $toggle = document.getElementById('toggle');
+          $toggle.addEventListener('click', function() {
+            var isOpen = $slider.classList.contains('slide-out');
+            $toggle.innerHTML = isOpen ? "<" : ">";
+            $slider.setAttribute('class', isOpen ? 'col-sm-4 col-9 slide-in' : 'col-sm-4 col-9 slide-out');
+          });
+        
+  .col-sm-4.col-2
+  .col-sm-8.col-10
+    .row.col-12
+      h1= title
+    .row.col-12
+      p Welcome to #{title}
+    .row.col-12(style='padding-bottom: 2rem;')
+      .col-4
+        +namePicker
+        script.
+          (function()
+          { 
+            if(sessionStorage.getItem('name') == null) 
+            { 
+              $('#namePicker').modal('show'); 
+            } 
+          })();
+    if title != "Who Loses!"
+      .row.col-12
+        h5 In Room Now:
+        ul.room#user-list
+      br
+      br
+  .row.col-12
+    .col-4
+    .col-8
+      if title != "Who Loses!"
+        button.btn-lg.btn-danger(OnClick=`pickALoser()`) Pick a Loser!
+  +announcement("We have a Loser! Its ...", "loser")
+  +roomPicker('Create', true)
+        

@@ -1,0 +1,15 @@
+mixin namePicker()
+    button(type="button" class="btn btn-primary" data-toggle="modal" data-target=`#namePicker`) Set Name
+    .modal(class="fade" id=`namePicker` tabindex="-1" role="dialog" aria-hidden="true" style="color: black;")
+        .modal-dialog(role="document")
+            .modal-content
+                .modal-header
+                    h5.modal-title Whats your name?
+                    button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+                        span(aria-hidden="true") &times;
+                .modal-body
+                    .row
+                        .col-sm-12.text-center(style="margin-bottom: 5rem;")
+                            input(type="text" id='name-value')
+                .modal-footer
+                    button(type="button" class="btn btn-primary" data-dismiss="modal" onClick='setName()') Set Name

@@ -1,0 +1,16 @@
+mixin roomPicker(action, hide)
+    if(!hide)
+        button(type="button" class="btn btn-primary" data-toggle="modal" data-target=`#${action}-room`) #{action} Room
+    .modal(class="fade" id=`${action}-room` tabindex="-1" role="dialog" aria-hidden="true" style="color: black;")
+        .modal-dialog(role="document")
+            .modal-content
+                .modal-header
+                    h5.modal-title Enter Room Name
+                    button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+                        span(aria-hidden="true") &times;
+                .modal-body
+                    .row
+                        .col-sm-12.text-center(style="margin-bottom: 5rem;")
+                            input(type="text" id=`room-value-${action}`)
+                .modal-footer
+                    button(type="button" class="btn btn-primary" data-dismiss="modal" onClick=`joinRoom('${action}')`) #{action} room

@@ -1,0 +1,24 @@
+{
+  "name": "wholoses",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node start.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "body-parser": "~1.18.2",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "dotenv": "^6.2.0",
+    "express": "~4.15.5",
+    "morgan": "~1.9.0",
+    "now": "^13.1.2",
+    "pug": "2.0.0-beta11",
+    "serve-favicon": "~2.4.5",
+    "ws": "^6.1.2"
+  },
+  "devDependencies": {
+    "jest": "^24.0.0"
+  }
+}

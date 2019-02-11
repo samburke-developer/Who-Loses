@@ -1,0 +1,15 @@
+mixin announcement(title, id)
+    .modal(class="fade" id=`${id}` tabindex="-1" role="dialog" aria-hidden="true" style="color: black;")
+        .modal-dialog(role="document")
+            .modal-content
+                .modal-header
+                    h5.modal-title #{title}
+                    button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+                        span(aria-hidden="true") &times;
+                .modal-body
+                    .row
+                        .col-sm-12.text-center
+                            h3(id=`${id}-text`)
+                        .col-sm-12.text-center
+                            img(src="./images/loser.gif" style="text-align: center; width: 100%; max-width: 25rem;")
+                .modal-footer
