@@ -25,5 +25,5 @@ Elements of the UI that get updated include:
 Popular room names include:
 * Who is walking the dog?
 * Who is taking out the bins tonight?
-* Who has wash the dish?
+* Who has to wash the dishes?
 
