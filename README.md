@@ -1,6 +1,6 @@
 # Who-Loses
 
-Who loses is an interact website that allows users to create and join rooms and pick a random loser from the people currently in the room.
+Who loses is an interactive website that allows users to create and join rooms and pick a random loser from the people currently in the room.
 
 A fun little project that is the result of experimenting with Web Sockets.
 
